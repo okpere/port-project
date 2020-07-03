@@ -1,3 +1,4 @@
+{{ blog.title }}
 
 <!doctype html>
 <html lang="en">
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>code master</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -55,7 +56,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">blog</a>
             <a class="nav-item nav-link" href="{% static 'Payment_slip (1).pdf' %}">resume</a>
             <a class="nav-item nav-link" href="">account</a>
             <a class="nav-item nav-link" href="http://twitter.com">twitter</a>
@@ -65,39 +66,21 @@
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
     <div class="container">
-      <h1>Okpere Clinton</h1>
-      <p class="lead text-muted">I am anng i am the last air bender.</p>
-      <p>
-        <a href="mailto:clintonokpere99@gmail.com" class="btn btn-primary my-2">email me </a>
-        <a href="#" class="btn btn-secondary my-2">find me</a>
-      </p>
-      <img src="{% static 'IMG_20190224_213256_109.jpg' %}"height=500 width=500/>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-        <div class="album py-5 bg-light">
+        <h1 class='text-center pt-5'>{{ blog.title }}</h1>
+        <hr />
+        </div>
+        <div class="album py-5 bg-dark">
        <div class="container">
-
-         <div class="row">
-             {% for job in jobs.all %}
-           <div class="col-md-4">
-             <div class="card mb-4 shadow-sm">
-               <img class="card-img-top" src="{{ job.image.url }}"/>
-               <div class="card-body">
-                 <p class="card-text">{{ job.summary }}</p>
-               </div>
-             </div>
+           <img class="img-fluid" src="{{ blog.image.url }}""height=1000 width=1000/>
+               <br />
+               <a href="">{{ blog.pub_date }}</a>
+               <p>{{ blog.summary }}</p>
            </div>
-           {% endfor %}
          </div>
        </div>
-     </div>
+         </div>
+       </div>
 </main>
 
 <footer class="text-muted">
